@@ -1,0 +1,14 @@
+format_version: v1.0
+configName: 20232207_COM_Controller
+folderName: 20232207_COM_Controller
+frameworkPath: C:\Users\kjbat\Harmony3
+processor: ATSAME54P20A
+projectName: 20232207_COM_Controller
+settings:
+  PackageFilter: ''
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  TRUSTZONE: 'false'
+  CMSISPath: dev_packs\arm\CMSIS\5.8.0
+  MERGE_STRATEGY: USER_ALL
+  DFPPath: dev_packs\Microchip\SAME54_DFP\3.7.122\atdf\ATSAME54P20A.atdf
