@@ -2,8 +2,8 @@
 1,PA00,,Available,,,,,,NORMAL
 2,PA01,,Available,,,,,,NORMAL
 3,PC00,,Available,,,,,,NORMAL
-4,PC01,,Available,,,,,,NORMAL
-7,PC02,,Available,,,,,,NORMAL
+4,PC01,MA_2,GPIO,Digital,In/Out,Low,,,NORMAL
+7,PC02,MA_1,GPIO,Digital,In/Out,Low,,,NORMAL
 8,PC03,,Available,,,,,,NORMAL
 9,PA02,,Available,,,,,,NORMAL
 10,PA03,,Available,,,,,,NORMAL

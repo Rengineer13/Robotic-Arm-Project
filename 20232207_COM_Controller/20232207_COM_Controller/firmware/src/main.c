@@ -34,11 +34,11 @@
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-int upper_bound = 1130;
-int lower_bound = 1000;
-#define delta (upper_bound-lower_bound)/50
+int upper_bound = 1160;
+int lower_bound = 0;
+#define delta (upper_bound-lower_bound)/1000
 #define RX_BUFFER_SIZE 1
-int duty_val = 1130;
+int duty_val = 1160;
 int channel_num;
 
 char clear[24];
@@ -61,10 +61,10 @@ TCC0_CHANNEL_NUM channel_array[10] = {};
 int array_index = 0;
 
 int duty_default = 0;
-int duty_0 = 1130;
-int duty_1 = 1130;
-int duty_3 = 1130;
-int duty_4 = 1130;
+int duty_0 = 1160;
+int duty_1 = 1160;
+int duty_3 = 1160;
+int duty_4 = 1160;
 
 int linked = 0;
 
@@ -143,6 +143,19 @@ int coms_handler(int duty_val){
                     linked = 0;
                     array_index = 0;
                 }
+                if(data == 'r'){  
+                    MA_1_Set();
+                    MA_2_Clear();
+                }
+                if(data == 'f'){
+                    MA_1_Clear();
+                    MA_2_Set();
+                }
+                if(data == 'g'){
+                    MA_1_Clear();
+                    MA_2_Clear();
+                }
+                
             telemetry();
             }
             else
@@ -164,7 +177,11 @@ int main ( void )
     SERCOM2_USART_Write(&messageStart[0], sizeof(messageStart));
     SERCOM2_USART_Write(&newline[0], sizeof(newline));
     
+    MA_1_Clear();
+    MA_2_Clear();
+    
     telemetry(*duty);
+    
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
@@ -176,8 +193,9 @@ int main ( void )
                 duty = &duty_0;
                 break;
             case 3:
+                // add some parameter for DC direction control
                 current_chan = TCC0_CHANNEL3;
-                duty = &duty_1;
+                duty = &duty_3;
                 break;
             case 4:
                 current_chan = TCC0_CHANNEL4;

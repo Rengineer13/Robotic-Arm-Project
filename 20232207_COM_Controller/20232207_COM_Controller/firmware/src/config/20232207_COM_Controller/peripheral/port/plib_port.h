@@ -65,6 +65,24 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for MA_2 pin ***/
+#define MA_2_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 1U))
+#define MA_2_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 1U))
+#define MA_2_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 1U))
+#define MA_2_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 1U))
+#define MA_2_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 1U))
+#define MA_2_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 1U)) & 0x01U)
+#define MA_2_PIN                  PORT_PIN_PC01
+
+/*** Macros for MA_1 pin ***/
+#define MA_1_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 2U))
+#define MA_1_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 2U))
+#define MA_1_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 2U))
+#define MA_1_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 2U))
+#define MA_1_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 2U))
+#define MA_1_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 2U)) & 0x01U)
+#define MA_1_PIN                  PORT_PIN_PC02
+
 // *****************************************************************************
 /* PORT Group
 
